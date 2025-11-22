@@ -22,5 +22,9 @@ app.use((req, res, next) => {
 const checkRouter = require('./routes/check');
 app.use('/api/check', checkRouter);
 
+// Simple ping route for production health checks
+const pingRouter = require('./routes/ping');
+app.use('/ping', pingRouter);
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
